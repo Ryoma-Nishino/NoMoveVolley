@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Throw : MonoBehaviour
 {
-    public Transform target;
+    public GameObject target; // Change this line
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
 
@@ -19,7 +19,7 @@ public class Throw : MonoBehaviour
         Vector3 startPos = transform.position;
 
         // 目標までの距離を計算
-        float target_Distance = Vector3.Distance(startPos, target.position);
+        float target_Distance = Vector3.Distance(startPos, target.transform.position); // Change this line
 
         // 初速度を計算
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
