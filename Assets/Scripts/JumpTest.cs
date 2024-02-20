@@ -13,6 +13,7 @@ public class JumpTest : MonoBehaviour
     public Vector3 rightdifference;
 
     public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI jumpTMP;
 
     public float leftLeg = 1;
     public float rightLeg = 1;
@@ -22,6 +23,8 @@ public class JumpTest : MonoBehaviour
     public GameObject testPlayer;
 
     public float jumpForce = 20;
+
+
     // Start is called before the first frame update
     void Start()
     {
