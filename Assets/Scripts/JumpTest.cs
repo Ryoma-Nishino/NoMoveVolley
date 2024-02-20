@@ -6,13 +6,16 @@ using TMPro;
 public class JumpTest : MonoBehaviour
 {
 
-    LeftPosition leftPosition;
-    RightPosition rightPosition;
+    public LeftPosition leftPosition;
+    public RightPosition rightPosition;
 
     public Vector3 leftdifference;
     public Vector3 rightdifference;
 
     public TextMeshProUGUI textMeshPro;
+
+    public float leftLeg = 1;
+    public float rightLeg = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +27,15 @@ public class JumpTest : MonoBehaviour
     {
         DifferenceReset();
 
-        if (leftdifference.y >= 1 && rightdifference.y >= 1)
+        if (leftdifference.y >= 0.3 && rightdifference.y >= 0.3)
         {
             textMeshPro.text = "Jump";
         }
-        else if (leftdifference.y >= 1 && rightdifference.y < 1)
+        else if (leftdifference.y >= 0.3 && rightdifference.y < 0.3)
         {
             textMeshPro.text = "Left";
         }
-        else if (leftdifference.y < 1 && rightdifference.y >= 1)
+        else if (leftdifference.y < 0.3 && rightdifference.y >= 0.3)
         {
             textMeshPro.text = "Right";
         }
