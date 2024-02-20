@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 275088179}
   - component: {fileID: 275088178}
   m_Layer: 5
-  m_Name: LeftLeg
+  m_Name: LeftLegText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 383782990}
   - component: {fileID: 383782989}
   - component: {fileID: 383782992}
+  - component: {fileID: 383782993}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -611,9 +612,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383782987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e60edc2fffd1e3d4bb2ea9bf1c942693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 275088178}
+--- !u!114 &383782993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383782987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdcc2d717b80b04ab6c2646f299cf34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 275088178}
@@ -629,7 +643,7 @@ GameObject:
   - component: {fileID: 389554321}
   - component: {fileID: 389554320}
   m_Layer: 5
-  m_Name: RightLeg
+  m_Name: RightLegText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,6 +1628,7 @@ GameObject:
   - component: {fileID: 1491156422}
   - component: {fileID: 1491156421}
   - component: {fileID: 1491156424}
+  - component: {fileID: 1491156425}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1714,9 +1729,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491156419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e60edc2fffd1e3d4bb2ea9bf1c942693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 389554320}
+--- !u!114 &1491156425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491156419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94743b4f2d48d93458ef3662d5cee022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 389554320}

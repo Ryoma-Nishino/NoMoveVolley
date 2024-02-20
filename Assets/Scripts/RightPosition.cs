@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // TextMeshProÇégópÇ∑ÇÈÇΩÇﬂÇÃnamespace
 
-public class PositionLogger : MonoBehaviour
+public class RightPosition : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro; // ï\é¶Ç∑ÇÈTextMeshProUGUIÇInspectorÇ©ÇÁê›íË
     Vector3 position2;
@@ -11,7 +11,7 @@ public class PositionLogger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,7 +37,8 @@ public class PositionLogger : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-             position2 = transform.position;
+            position2 = transform.position;
         }
     }
 }
+
