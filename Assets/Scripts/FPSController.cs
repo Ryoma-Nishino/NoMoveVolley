@@ -26,17 +26,21 @@ public class FPSController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
-        float yRot = Input.GetAxis("Mouse Y") * Xsensityvity;
+        if (cursorLock == true)
+        {
+            float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
+            float yRot = Input.GetAxis("Mouse Y") * Xsensityvity;
 
-        cameraRot *= Quaternion.Euler(-yRot, 0, 0);
-        characterRot *= Quaternion.Euler(0, xRot, 0);
+            cameraRot *= Quaternion.Euler(-yRot, 0, 0);
+            characterRot *= Quaternion.Euler(0, xRot, 0);
 
-        //Update‚Ì’†‚Åì¬‚µ‚½ŠÖ”‚ğŒÄ‚Ô
-        cameraRot = ClampRotation(cameraRot);
+            //Update‚Ì’†‚Åì¬‚µ‚½ŠÖ”‚ğŒÄ‚Ô
+            cameraRot = ClampRotation(cameraRot);
 
-        cam.transform.localRotation = cameraRot;
-        transform.localRotation = characterRot;
+            cam.transform.localRotation = cameraRot;
+            transform.localRotation = characterRot;
+        }
+        
 
 
         UpdateCursorLock();
