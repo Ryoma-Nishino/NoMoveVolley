@@ -21,7 +21,7 @@ public class JumpTest : MonoBehaviour
 
     public GameObject testPlayer;
 
-    public float jumpForce = 10;
+    public float jumpForce = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,7 +87,8 @@ public class JumpTest : MonoBehaviour
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                     // Apply an upward force
-                    rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                    //rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                    rb.velocity = Vector3.up * jumpForce;
                 }
             }
             else
