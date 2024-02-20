@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // TextMeshProÇégópÇ∑ÇÈÇΩÇﬂÇÃnamespace
 
 public class PositionLogger : MonoBehaviour
 {
+    public TextMeshProUGUI textMeshPro; // ï\é¶Ç∑ÇÈTextMeshProUGUIÇInspectorÇ©ÇÁê›íË
+    Vector3 position2;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +21,22 @@ public class PositionLogger : MonoBehaviour
 
         // Log the position
         Debug.Log("Position: " + position);
+
+        if (Input.GetMouseButton(0))
+        {
+            position2 = transform.position;
+        }
+        Vector3 difference = position - position2;
+
+        // Display the difference on the screen using TextMeshProUGUI
+        textMeshPro.text = "Difference: " + difference.ToString();
+    }
+
+    public void ClickPosition()
+    {
+        if (Input.GetMouseButton(0))
+        {
+             position2 = transform.position;
+        }
     }
 }
