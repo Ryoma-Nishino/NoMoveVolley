@@ -6,7 +6,7 @@ using TMPro; // TextMeshProÇégópÇ∑ÇÈÇΩÇﬂÇÃnamespace
 public class RightPosition : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro; // ï\é¶Ç∑ÇÈTextMeshProUGUIÇInspectorÇ©ÇÁê›íË
-    Vector3 position2;
+    public Vector3 position2;
     public Vector3 difference;
     // Start is called before the first frame update
     void Start()
@@ -40,5 +40,10 @@ public class RightPosition : MonoBehaviour
             position2 = transform.position;
         }
     }
+
+    /*public Vector3 GetPosition2()
+    {
+        return position2;
+    }*/
 }
 

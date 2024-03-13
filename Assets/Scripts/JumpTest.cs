@@ -13,7 +13,10 @@ public class JumpTest : MonoBehaviour
     public Vector3 rightdifference;
 
     public TextMeshProUGUI textMeshPro;
-    public TextMeshProUGUI jumpTMP;
+    public TextMeshProUGUI frequencyText;
+    public TextMeshProUGUI countText; // 条件が満たされた回数を表示するためのTextMeshProUGUI
+    public TextMeshProUGUI countDownText;
+    //public TextMeshProUGUI jumpTMP;
 
     public float leftLeg = 1;
     public float rightLeg = 1;
@@ -24,6 +27,16 @@ public class JumpTest : MonoBehaviour
 
     public float jumpForce = 20;
 
+    private bool isFirstRight = false; // 最初にRightになったかどうかを追跡するフラグ
+
+    private float countdownTime = 10f; // カウントダウン時間
+    private bool isCounting = false; // カウントダウンが進行中かどうかを追跡するフラグ
+
+    private int rightConditionCount = 0; // 条件が満たされた回数を追跡するカウンター
+    private float frequency = 0f;
+    private int lastCondition = 0; // 前回の状態を追跡する変数
+
+    public float judgement = 0.35f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,31 +49,32 @@ public class JumpTest : MonoBehaviour
     {
         DifferenceReset();
 
-        if (leftdifference.y >= 0.3 && rightdifference.y >= 0.3)
-        {
-            textMeshPro.text = "Jump";
-            
-            condition = 3;
-        }
-        else if (leftdifference.y >= 0.3 && rightdifference.y < 0.3)
-        {
-            textMeshPro.text = "Left";
-            condition = 1;
-        }
-        else if (leftdifference.y < 0.3 && rightdifference.y >= 0.3)
-        {
-            textMeshPro.text = "Right";
-            condition = 2;
-        }
-        else
-        {
-            textMeshPro.text = "Stay";
-            condition = 0;
-        }
+        Test();
 
-        if (Input.GetMouseButton(0))
+        countDownText.text = "CountDownTime:" + countdownTime;
+
+        // 左クリックが押されたらカウントダウンを開始
+        if (Input.GetMouseButtonDown(0))
         {
-            JumpAction("TestPlayer");
+            isCounting = true;
+            rightConditionCount = 0;
+            lastCondition = 0; // 前回の状態を追跡する変数
+}
+        countText.text = "RightCount:" + rightConditionCount; // 条件が満たされた回数をテキストとして表示
+        frequencyText.text = "Frequency:" + frequency + "Hz"; // 周波数をテキストとして表示
+        // カウントダウンが進行中なら時間を減らす
+        if (isCounting)
+        {
+            countdownTime -= Time.deltaTime;
+            if (countdownTime <= 0)
+            {
+                isCounting = false;
+                countdownTime = 10f; // カウントダウン時間をリセット
+                frequency = rightConditionCount / countdownTime;
+                //Debug.Log("60秒経過しました！");
+                //rightConditionCountText.text = rightConditionCount.ToString;
+                //frequencyText.text = "Frequency：" + frequency + "Hz"; // 周波数をテキストとして表示
+            }
         }
     }
 
@@ -109,6 +123,45 @@ public class JumpTest : MonoBehaviour
     {
         // Cast a ray downward with a distance just slightly more than the collider bounds
         return Physics.Raycast(obj.transform.position, -Vector3.up, obj.GetComponent<Collider>().bounds.extents.y + 0.1f);
+    }
+
+    public void Test()
+    {
+        if (leftdifference.y >= judgement && rightdifference.y >= judgement)
+        {
+            textMeshPro.text = "Jump";
+
+            condition = 3;
+        }
+        else if (leftdifference.y >= judgement && rightdifference.y < judgement)
+        {
+            textMeshPro.text = "Left";
+            condition = 1;
+        }
+        else if (leftdifference.y < judgement && rightdifference.y >= judgement)
+        {
+            textMeshPro.text = "Right";
+            condition = 2;
+
+            // カウントダウンが進行中ならカウンターを増やす
+            if (isCounting && lastCondition != 2)
+            {
+                rightConditionCount++;
+            }
+            // 現在の状態を保存
+            lastCondition = 2;
+        }
+        else
+        {
+            textMeshPro.text = "Stay";
+            lastCondition = 0;
+            condition = 0;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            JumpAction("TestPlayer");
+        }
     }
 
 }
