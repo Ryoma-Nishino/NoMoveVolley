@@ -132,6 +132,11 @@ public class JumpTest : MonoBehaviour
             textMeshPro.text = "Jump";
 
             condition = 3;
+            if (lastCondition != 3)
+            {
+                JumpAction("TestPlayer");
+            }
+            lastCondition = 3;
         }
         else if (leftdifference.y >= judgement && rightdifference.y < judgement)
         {
@@ -160,7 +165,7 @@ public class JumpTest : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            JumpAction("TestPlayer");
+            //JumpAction("TestPlayer");
         }
     }
 
